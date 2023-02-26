@@ -23,6 +23,7 @@ export const getEventList = (payload) => {
 
 
             if (er.response.status == 401) {
+
                 dispatch(unSetAuthShow())
                 return
             }

@@ -52,6 +52,7 @@ export const loginSlice = createSlice({
         },
         unSetAuthShow: (state, {payload}) => {
             deleteCookie('admin_access_token');
+            window.location.href = "/";
             state.authShow = false;
         },
         unsetMessage: (state) => {

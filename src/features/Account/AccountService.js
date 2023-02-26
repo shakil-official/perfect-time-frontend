@@ -9,6 +9,7 @@ import {
     setTimeZone,
     updateAccount
 } from "@/features/Account/accountSlice";
+import {unSetAuthShow} from "@/features/Login/loginSlice";
 
 
 export const updateAccountData = (payload) => {
@@ -23,6 +24,12 @@ export const updateAccountData = (payload) => {
             if (er.code == 'ERR_NETWORK') {
                 dispatch(networkError(er.code));
             }
+
+            if (er.response.status == 401) {
+                dispatch(unSetAuthShow())
+                return
+            }
+
         });
     };
 }
@@ -44,6 +51,12 @@ export const getAccountData = (payload) => {
             if (er.code == 'ERR_NETWORK') {
                 dispatch(networkError(er.code));
             }
+
+            if (er.response.status == 401) {
+                dispatch(unSetAuthShow())
+                return
+            }
+
         });
     };
 }
