@@ -32,6 +32,7 @@ const timeZoneList = ["US/Alaska", "America/Mexico_City", "America/Bogota", "US/
 
 
 const Slug = ({initData}) => {
+    const [timeZoneChange, setTimeZoneChange] = useState(0)
     const [firstLoad, setFirstLoad] = useState(true)
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
@@ -56,9 +57,6 @@ const Slug = ({initData}) => {
         }
 
     }, []);
-
-
-
 
 
     useEffect(() => {
@@ -168,6 +166,7 @@ const Slug = ({initData}) => {
     };
 
     const handleTimeZone = (event) => {
+        setTimeZoneChange((value) => value + 1)
         dispatch(setTimeZone(event.target.value))
     }
 
@@ -241,6 +240,7 @@ const Slug = ({initData}) => {
 
                                                     {timeOpen ?
                                                         <Slot
+                                                            timeZoneChange={timeZoneChange}
                                                             availableTime={initData.data.available_day_list}
                                                             selectedDate={dateGet}
                                                             handleAvailableSlot={handleAvailableSlot}>

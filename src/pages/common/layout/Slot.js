@@ -8,7 +8,7 @@ import {unSetAuthShow} from "@/features/Login/loginSlice";
 import {useSelector} from "react-redux";
 
 
-const Slot = ({handleAvailableSlot, availableTime, selectedDate}) => {
+const Slot = ({handleAvailableSlot, availableTime, selectedDate, timeZoneChange}) => {
 
     let start = availableTime[selectedDate.getDay()]['data'][0].start;
     let end = availableTime[selectedDate.getDay()]['data'][0].end;
@@ -28,8 +28,9 @@ const Slot = ({handleAvailableSlot, availableTime, selectedDate}) => {
     }
 
     useEffect(() => {
+        console.log(timeZoneChange)
         getUsedSlot(selectedDate)
-    }, [selectedDate])
+    }, [selectedDate, timeZoneChange])
 
 
     const availableSlot = [

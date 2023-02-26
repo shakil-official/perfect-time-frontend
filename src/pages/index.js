@@ -77,15 +77,6 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
 
-
-            <Calendar
-                onChange={setDateGet}
-                value={dateGet}
-                tileDisabled={tileDisabled}
-                tileContent={tileContent}
-                minDate={minDate}
-            />
-
             <main className={styles.main}>
 
                 <Stack direction="column" spacing={2} width={"100%"} height={"100vh"} justifyContent={"center"}
@@ -95,6 +86,7 @@ export default function Home() {
                         {/*<Counter/>*/}
                     </div>
                     <Button onClick={() => router.push('/user/login')} variant="outlined">User Login</Button>
+                    <Button onClick={() => router.push('/signup')} variant="outlined">User Signup</Button>
                 </Stack>
             </main>
         </>
